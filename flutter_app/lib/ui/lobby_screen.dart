@@ -4,6 +4,10 @@ import '../data/constants.dart';
 import '../data/levels.dart';
 import '../game/circle_game.dart';
 import '../services/save_manager.dart';
+import 'chest_screen.dart';
+import 'inventory_screen.dart';
+import 'modes_screen.dart';
+import 'settings_screen.dart';
 
 class LobbyScreen extends StatefulWidget {
   const LobbyScreen({super.key});
@@ -65,10 +69,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
   Widget _buildTab() {
     switch (_tab) {
       case 0: return _buildLevels();
-      case 1: return const Center(child: Text('Coffres', style: TextStyle(color: Colors.white54)));
-      case 2: return const Center(child: Text('Inventaire', style: TextStyle(color: Colors.white54)));
-      case 3: return const Center(child: Text('Modes', style: TextStyle(color: Colors.white54)));
-      case 4: return const Center(child: Text('Audio', style: TextStyle(color: Colors.white54)));
+      case 1: return ChestScreen(onChanged: () => setState(() {}));
+      case 2: return InventoryScreen(onChanged: () => setState(() {}));
+      case 3: return ModesScreen(onChanged: () => setState(() {}));
+      case 4: return const SettingsScreen();
       default: return const SizedBox();
     }
   }
