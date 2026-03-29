@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'dart:ui';
+import 'package:flutter/painting.dart';
 import '../data/constants.dart';
 
 class GameItem {

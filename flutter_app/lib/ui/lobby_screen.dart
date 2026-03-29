@@ -101,7 +101,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
           leading: CircleAvatar(backgroundColor: t.block, child: Text('${i + 1}', style: const TextStyle(fontWeight: FontWeight.w700, color: Colors.white))),
           title: Text(unlocked ? lv.name : '???', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
           subtitle: Text(unlocked ? 'Difficulte ${lv.difficulty}' : 'Verrouille', style: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 12)),
-          trailing: Text('${'★' * stars}${'☆' * (3 - stars)}', style: const TextStyle(color: Color(0xFFFFCC00))),
+          trailing: Text('${'★' * stars}${'☆' * (3 - stars as int)}', style: const TextStyle(color: Color(0xFFFFCC00))),
           onTap: unlocked ? () => _startLevel(i) : null,
         ),
       ));

@@ -9,7 +9,7 @@ import 'collision_system.dart';
 
 enum GameState { playing, dead, win }
 
-class CircleGame extends FlameGame with TapDetector {
+class CircleGame extends FlameGame with TapCallbacks {
   final LevelData level;
   final VoidCallback onDie;
   final VoidCallback onWin;
@@ -45,7 +45,7 @@ class CircleGame extends FlameGame with TapDetector {
 
   @override
   Future<void> onLoad() async {
-    grid = level.map;
+    grid = level.map.map((col) => col.cast<TileType>()).toList();
     theme = themes[level.theme] ?? themes['space']!;
     speed = level.speed;
     gridOffsetY = size.y * 0.85 - gridRows * tileSize;
@@ -68,7 +68,7 @@ class CircleGame extends FlameGame with TapDetector {
   }
 
   @override
-  void onTapDown(TapDownInfo info) {
+  void onTapDown(TapDownEvent event) {
     if (state == GameState.playing && playerGrounded) {
       playerVY = GamePhysics.jumpForce;
       playerGrounded = false;
